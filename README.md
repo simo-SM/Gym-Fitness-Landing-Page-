@@ -10,7 +10,7 @@ The project focuses on clean UI, smooth animations, and an excellent mobile expe
 
 ---
 
-## 🚀 Features
+## Features
 
 - 📱 **Fully Responsive Design** (Mobile, Tablet, Desktop)
 - 🎬 **Smooth Animations using GSAP**
@@ -21,7 +21,7 @@ The project focuses on clean UI, smooth animations, and an excellent mobile expe
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **HTML5**
 - **Tailwind CSS**
