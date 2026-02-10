@@ -2,7 +2,7 @@
 ---
 ![image alt](https://github.com/simo-SM/Gym-Fitness-Landing-Page-/blob/3c5e4bbee29838aab5744e875884daa7e0bb23eb/websitGymPhoto.png)
 ---
-##like:
+#like:
 -https://simo-sm.github.io/Gym-Fitness-Landing-Page-/
 ---
 A modern, responsive gym website built with **HTML**, **Tailwind CSS**, and **GSAP** animations.  
