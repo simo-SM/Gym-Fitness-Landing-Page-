@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Elite Fitness | Unleash Your Inner Elite</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#0a0a0c",
+                    },
+                    fontFamily: {
+                        "display": ["Lex-end", "Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+     
+     
+    <!-- Custom Styles -->
+    <style>
+        * {
+            box-sizing: border-box;
+            /* outline: 1px solid red; */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        #imagBG img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(0deg, #0a0a0c 0%, rgba(10, 10, 12, 0.4) 100%);
+        }
+        .card-gradient {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+        }
+        #nevheder i {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #imagBG{
+                /* opacity: 0; */
+                position: absolute;
+                pointer-events: none;
+                width: 100%;
+            }
+            #navigation{
+                width: 100%;
+                font-size: 16px;
+
+            }
+            #navigation .max-w-7xl{
+                padding: 0 1rem;
+
+            }
+            #btnMeder{
+                padding: 0.5rem 1.5rem;
+                font-size: 14px;
+                display: none;
+            }
+             .StickyWhatsApp{
+                padding: 0.5rem;
+                width: 3rem;
+                height: 3rem;
+            }
+             .joinWhatsapp{
+                padding: 0.75rem 1.5rem;
+                font-size: 14px;
+            }
+             .card-gradient {
+                padding: 1.5rem;
+            }
+            #nevheder {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+            }
+            #nevheder i {
+                position: absolute;
+                display: block;
+                z-index: 50;
+                font-size: 24px;
+                color: #0d59f27b;
+            }
+            .glass-nav {
+                background-color: rgba(0, 0, 0, 0.507);
+                backdrop-filter: blur(10px);
+            }
+            #mobileMenu{
+                background-color: rgba(21, 3, 75, 0.519);
+            }
+            #mobileMenu a{
+                color: #ffffff;
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 selection:bg-primary/30">
+    
+    <!-- Sticky WhatsApp Button -->
+    <a class="StickyWhatsApp fixed bottom-8 right-8 z-50 bg-primary hover:bg-primary/90 text-white p-4 rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center transition-all hover:scale-110 group-hover:cursor-pointer">
+        <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+        </svg>
+    </a>
+
+    <!-- Navigation -->
+    <nav id="navigation" class="fixed top-0 w-full z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      
+          <!-- Logo -->
+          <div class="flex items-center gap-2">
+            <div class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons text-white">bolt</span>
+            </div>
+            <span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">
+              ELITE FITNESS
+            </span>
+          </div>
+      
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400">
+            <a href="#programs" class="hover:text-primary">Programs</a>
+            <a href="#Coaches" class="hover:text-primary">Coaches</a>
+            <a href="#Pricing" class="hover:text-primary">Pricing</a>
+            <a href="#Locations" class="hover:text-primary">Locations</a>
+          </div>
+      
+          <!-- Right side -->
+          <div class="flex items-center gap-4">
+            <button id="btnMeder"
+              class="hidden md:block bg-primary text-white px-6 py-2.5 rounded-full font-bold text-sm uppercase">
+              Member Login
+            </button>
+      
+            <!-- Burger icon -->
+            <button id="menuBtn" class="md:hidden text-primary">
+                <span id="menuIcon" class="material-icons text-3xl">menu</span>
+              </button>
+          </div>
+      
+        </div>
+      
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+          class="hidden md:hidden bg-white  border-t px-6 py-6 space-y-4 text-center">
+          <a href="#programs" class="block">Programs</a>
+          <a href="#Coaches" class="block">Coaches</a>
+          <a href="#Pricing" class="block">Pricing</a>
+          <a href="#Locations" class="block">Locations</a>
+          <button class="w-full bg-primary text-white py-2 rounded-full font-bold">
+            Member Login
+          </button>
+        </div>
+      </nav>
+      
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+<header class="relative min-h-screen flex items-center overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+        <div id="imagBG" class="absolute inset-0 w-full h-full">
+            <img src="./images/bg2.jpeg" alt="" class="w-full h-full object-cover brightness-75"/>
+        </div>
+        <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 pt-20">
+        <div class="max-w-3xl">
+            <span class="inline-block px-4 py-1 bg-primary/20 text-primary rounded-full text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm">
+                Forging Champions Since 2014
+            </span>
+            <h1 class="text-7xl md:text-9xl font-black italic tracking-tighter text-white leading-[0.85] uppercase mb-8 drop-shadow-2xl">
+                Unleash Your <br/> <span class="text-primary">Inner Elite</span>
+            </h1>
+            <p class="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl font-light drop-shadow-lg">
+                Join the premier high-performance community. World-class equipment, elite coaching, and a results-driven environment designed for those who demand more.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="joinWhatsapp bg-primary text-white px-10 py-5 rounded-full font-black text-lg uppercase tracking-wider hover:bg-primary/80 transition-all flex items-center justify-center gap-3 shadow-lg shadow-primary/30 backdrop-blur-sm">
+                    Join Now on WhatsApp
+                    <span class="material-icons">arrow_forward</span>
+                </button>
+                <button class="border-2 border-white/30 text-white px-10 py-5 rounded-full font-black text-lg uppercase tracking-wider hover:bg-white hover:text-black transition-all backdrop-blur-sm">
+                    Free Trial
+                </button>
+            </div>
+            <div class="mt-12 flex items-center gap-4">
+                <div class="flex -space-x-3">
+                    <img class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of a smiling male member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcjnof5o3JozUhrQuuTFmZwVFZ82tgLtLTol9h1Ka2Asd9Xv2xvb02bijn5mkCvBxGOa3QDFGZDmscAqTj06-ASEOcAkbnEX1JAY3o7UU4xK_XdLDiSn1M3QG1o0g7AsFE42v5oFRVhL2DUd1cx9QyoNODKmhAP1__owQt7yCKsJEbCW6lrdO1AQ8mgwqeZ626cVV8XhykCmZ8TSVFBU-6YmOXXGpMDPyMAwPdpX5GCfg9J1SSEZX08j0skNzDtzKULn5YS80L2lDj "/>
+                    <img class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of a female gym member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSrCuDpBPliRTXn82h6I1tGxeAGvLgbpqi1qpXAawkeqlmlJJqm9qse1nBfN0r9IHk3tsB-3Cb0uaG8geEfdolG8BEsSDOXSWiuHlyBTBXxjpm_K19p_blM-nOimcZMzMyoGPUoV-thh3SFPwpI1pLuChbyKFJSWGSqcjDsgbuLmE1iC6z5uJMXgavlLfCVI7fGdFPpLOXStQdyo5OCFRpywaV211G2isHC2BQGzaszj13I9ZJcaggNItMiEfwmUWlHl-Brrq0aIYE "/>
+                    <img class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of another male athlete" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeBBueImxogQLTdF5Qr54I4MVI_PDOuXjgh2eMZoM36BtaPYXso8dExKquL5XhWb-HkFR86-sUUe811-7sYZfVzGISqulvKXUQTS_aDg2YNxBzP7NJ1bBD9eGRG4h9rnyE_qyP4XvCw5ATeA0GwF_-VM-wVdtPCN2XV1MaGPZ9SSdDFesdMI4Ov_0XwhG-Pu55qB9LbmiOwAU9O60Y4VdJakS4JnXo71QR0bpWzIC0g-JDWXHNBGuq41jghevne4Egd2VygGArwNBs "/>
+                </div>
+                <p class="text-slate-300 text-sm font-medium italic drop-shadow-md">Trusted by 500+ local athletes</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-24 px-6 bg-background-light dark:bg-background-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-primary font-black uppercase tracking-widest text-sm mb-4">Our Programs</h2>
+                    <p class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter">
+                        Built for Performance
+                    </p>
+                </div>
+                <p class="max-w-md text-slate-500 dark:text-slate-400">
+                    From high-intensity circuits to tactical strength training, our programs are engineered to push your limits.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Program Card 1 -->
+                <div class="group relative overflow-hidden rounded-lg card-gradient border border-white/5 p-8 transition-all hover:border-primary/50">
+                    <div class="w-16 h-16 bg-primary/10 rounded flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span class="material-icons text-primary group-hover:text-white text-3xl">fitness_center</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase italic mb-4">Weight Training</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">Focus on pure strength and hypertrophy with our selection of pro-grade racks and free weights.</p>
+                    <a class="inline-flex items-center text-primary font-bold uppercase tracking-wider text-sm gap-2" href="#">
+                        View Details <span class="material-icons text-sm">north_east</span>
+                    </a>
+                </div>
+                <!-- Program Card 2 -->
+                <div class="group relative overflow-hidden rounded-lg card-gradient border border-white/5 p-8 transition-all hover:border-primary/50">
+                    <div class="w-16 h-16 bg-primary/10 rounded flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span class="material-icons text-primary group-hover:text-white text-3xl">speed</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase italic mb-4">HIIT &amp; Cardio</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">High-intensity metabolic conditioning designed to incinerate fat and boost endurance.</p>
+                    <a class="inline-flex items-center text-primary font-bold uppercase tracking-wider text-sm gap-2" href="#">
+                        View Details <span class="material-icons text-sm">north_east</span>
+                    </a>
+                </div>
+                <!-- Program Card 3 -->
+                <div class="group relative overflow-hidden rounded-lg card-gradient border border-white/5 p-8 transition-all hover:border-primary/50">
+                    <div class="w-16 h-16 bg-primary/10 rounded flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span class="material-icons text-primary group-hover:text-white text-3xl">groups</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-white uppercase italic mb-4">Personal Coaching</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">1-on-1 mentorship from certified elite coaches to fast-track your specific fitness goals.</p>
+                    <a class="inline-flex items-center text-primary font-bold uppercase tracking-wider text-sm gap-2" href="#">
+                        View Details <span class="material-icons text-sm">north_east</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="Coaches" class="py-24 px-6 bg-slate-100 dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
+                <img alt="Gym interior with modern equipment" class="rounded-lg relative z-10 shadow-2xl" data-alt="Interior of a modern high-performance gym" src="./images/gym.jpeg"/>
+                <div class="absolute bottom-6 left-6 z-20 bg-primary p-6 rounded shadow-xl">
+                    <p class="text-4xl font-black text-white italic">24/7</p>
+                    <p class="text-xs uppercase font-bold text-white/80 tracking-widest">Access anytime</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-primary font-black uppercase tracking-widest text-sm mb-4">Why Elite?</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter mb-8 leading-none">
+                    Excellence is <br/> the standard.
+                </h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4">
+                        <span class="material-icons text-primary mt-1">check_circle</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Elite Certified Coaches</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Our trainers don't just instruct; they lead by example and hold national certifications.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-icons text-primary mt-1">check_circle</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Luxury Recovery Zone</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Post-workout recovery with cryotherapy, saunas, and sports massage services.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="material-icons text-primary mt-1">check_circle</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-1">Global Community</h4>
+                            <p class="text-slate-500 dark:text-slate-400 leading-relaxed">Join a network of motivated individuals who push you to be your best self every day.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="Pricing" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-primary font-black uppercase tracking-widest text-sm mb-4">Membership Plans</h2>
+            <p class="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter">Choose Your Strength</p>
+        </div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Plan -->
+            <div class="rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-white/5 p-8 flex flex-col">
+                <p class="text-sm font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">Monthly</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">$</span>
+                    <span class="text-6xl font-black text-slate-900 dark:text-white italic">49</span>
+                    <span class="text-slate-500">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow">
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> 24/7 Gym Access
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Standard Equipment
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Locker Room Access
+                    </li>
+                </ul>
+                <button class="Get-Started w-full py-4 rounded-full border border-slate-300 dark:border-white/10 font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all">
+                    Get Started
+                </button>
+            </div>
+            <!-- Featured Plan (Yearly) -->
+            <div class="rounded-lg bg-background-light dark:bg-background-dark border-4 border-primary p-8 flex flex-col relative scale-105 shadow-2xl shadow-primary/20">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
+                    Best Value
+                </div>
+                <p class="text-sm font-bold uppercase text-primary mb-2">Yearly (Elite)</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">$</span>
+                    <span class="text-6xl font-black text-slate-900 dark:text-white italic">39</span>
+                    <span class="text-slate-500">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow">
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> All Monthly Features
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Free Trainer Consultation
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Nutrition Plan Included
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> 2 Guest Passes Monthly
+                    </li>
+                </ul>
+                <button class="Sign-Up-via-WhatsApp w-full py-4 rounded-full bg-primary text-white font-black uppercase tracking-widest text-sm hover:bg-primary/80 transition-all">
+                    Sign Up via WhatsApp
+                </button>
+            </div>
+            <!-- Platinum Plan -->
+            <div class="rounded-lg bg-background-light dark:bg-background-dark border border-slate-200 dark:border-white/5 p-8 flex flex-col">
+                <p class="text-sm font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">Platinum</p>
+                <div class="flex items-baseline gap-1 mb-8">
+                    <span class="text-4xl font-black text-slate-900 dark:text-white">$</span>
+                    <span class="text-6xl font-black text-slate-900 dark:text-white italic">99</span>
+                    <span class="text-slate-500">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow">
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> All Elite Features
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Weekly Personal Training
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Recovery Zone Access
+                    </li>
+                    <li class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                        <span class="material-icons text-sm text-primary">done</span> Free Laundry Service
+                    </li>
+                </ul>
+                <button class="Go-Platinum w-full py-4 rounded-full border border-slate-300 dark:border-white/10 font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all">
+                    Go Platinum
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map/Location Section -->
+    <section id="Locations" class="bg-slate-100 dark:bg-slate-900/30 py-24 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-primary font-black uppercase tracking-widest text-sm mb-4">Visit Us</h2>
+                <h3 class="text-4xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter mb-6">Our Flagship Facility</h3>
+                <p class="text-slate-500 dark:text-slate-400 mb-8 max-w-md">Located in the heart of the tech district, our facility spans 15,000 sq ft of pure performance potential.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <span class="material-icons text-primary">location_on</span>
+                        <span class="text-slate-700 dark:text-slate-300">123 Performance Way, tetouan</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="material-icons text-primary">phone</span>
+                        <span class="text-slate-700 dark:text-slate-300">+212(555) 987-6543</span>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-[400px] rounded-lg overflow-hidden border border-white/5">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46974.77744356593!2d-5.3694675804687355!3d35.59563669600739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b455e337292e7%3A0x7df868541cbcf279!2sSparta%20gym%20martil!5e1!3m2!1sen!2sus!4v1770730752779!5m2!1sen!2sus"
+                  class="w-full h-full"
+                  style="border:0;"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              
+              
+                     
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-background-dark py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-8">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+                            <span class="material-icons text-white text-sm">bolt</span>
+                        </div>
+                        <span class="text-xl font-black tracking-tighter text-white uppercase">ELITE FITNESS</span>
+                    </div>
+                    <p class="text-slate-500 max-w-sm leading-relaxed">The destination for high-performance athletes. No shortcuts, just hard work and elite results.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-6">Explore</h4>
+                    <ul class="space-y-4 text-slate-500 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Training Programs</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Recovery Services</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Corporate Plans</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Shop Apparel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-6">Connect</h4>
+                    <div class="flex gap-4 mb-6">
+                        <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                            <i class="material-icons text-white text-lg">public</i>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                            <i class="material-icons text-white text-lg">camera_alt</i>
+                        </a>
+                        <a class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#">
+                            <i class="material-icons text-white text-lg">videocam</i>
+                        </a>
+                    </div>
+                    <p class="text-slate-500 text-xs">JOIN THE NEWSLETTER</p>
+                    <!-- input + button + whatsappe -->
+                    <div class="mt-4 flex gap-2">
+                        <input
+                          id="wa-message"
+                          type="text"
+                          placeholder="Write your message..."
+                          class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm w-full text-white focus:ring-primary focus:border-primary"
+                        />
+                      
+                        <button
+                          onclick="sendWhatsApp()"
+                          class="bg-primary text-white p-2 rounded-full"
+                        >
+                          <span class="material-icons">chevron_right</span>
+                        </button>
+                      </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:row items-center justify-between gap-4">
+                <p class="text-slate-600 text-xs uppercase tracking-widest font-bold">© 2026 ELITE FITNESS GLOBAL. ALL RIGHTS RESERVED.</p>
+                <div class="flex gap-6 text-slate-600 text-xs uppercase tracking-widest font-bold">
+                    <a class="hover:text-white" href="#">Privacy</a>
+                    <a class="hover:text-white" href="#">Terms</a>
+                    <a class="hover:text-white" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <!-- GSAP Animations -->
+    <script src="./js/animations.js"></script>
+    <!-- link js -->
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
