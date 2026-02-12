@@ -8,7 +8,7 @@ const mobileMenu = document.getElementById("mobileMenu");
 const menuIcon = document.getElementById("menuIcon");
 
 function openWhatsApp() {
-    const phoneNumber = '+212608173585'; // Replace with your WhatsApp number
+    const phoneNumber = '212608173585'; // Replace with your WhatsApp number
     const message = encodeURIComponent('Hello, I would like to get in touch with you!'); // Optional pre-filled message
     const wthsappurl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(wthsappurl, '_blank');
@@ -17,15 +17,23 @@ wthsappBtn.addEventListener('click', openWhatsApp);
 stickyWhatsappBtn.addEventListener('click', openWhatsApp);
 
 // wa-message Input + Button → WhatsApp
-function sendWhatsApp(){
-    const message = document.getElementById('wa-message').value;
-    const phoneNumber = '+212608173585'; // Replace with your WhatsApp number
-    const wthsappurl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(wthsappurl, '_blank');
-}
+document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll('[onclick="sendWhatsApp()"]');
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const input = document.getElementById('wa-message');
+            const message = input ? input.value : '';
+            const phoneNumber = '+212608173585';
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        });
+    });
+});
+
+
 // Sign Up via WhatsApp
 sign_up_via_whatsappBtn.addEventListener('click', ()=>{
-    const message =encodeURIComponent(`Hello, I am interested in signing up for the gym membership. Please provide me with more details.\n
+    const message = encodeURIComponent(`Hello, I am interested in signing up for the gym membership. Please provide me with more details.\n
         $39/modone
         -All Monthly Features
         -Free Trainer Consultation
@@ -35,7 +43,7 @@ sign_up_via_whatsappBtn.addEventListener('click', ()=>{
     const phoneNumber = '+212608173585';
     const wthsappurl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(wthsappurl, '_blank');
-
+    console.log("Get Started button clicked, WhatsApp message sent.");
 });
 // Get Started Button
 Get_StartedBtn.addEventListener('click', ()=>{
@@ -45,9 +53,10 @@ Get_StartedBtn.addEventListener('click', ()=>{
         -Standard Equipment
         -Locker Room Acces`
     );   
-    const phoneNumber = '+212608173585';
+    const phoneNumber = '212608173585';
     const wthsappurl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(wthsappurl, '_blank');
+    
 });
 // Go Platinum Button
 Go_PlatinumBtn.addEventListener('click', ()=>{
@@ -58,22 +67,20 @@ Go_PlatinumBtn.addEventListener('click', ()=>{
     -Recovery Zone Access
     -Free Laundry Service `
 );
-    const phoneNumber = '+212608173585';
+    const phoneNumber = '212608173585';
     const wthsappurl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(wthsappurl, '_blank');
 });
 
 // Change menu icon to close when mobile menu is open
-    menuBtn.addEventListener('click', () => {
-        // mobileMenu.classList.toggle('hidden');
-
-        if (menuIcon.textContent === "menu")
-        {
-            menuIcon.textContent = "close";
-
-        }
-        else
-        {
-            menuIcon.textContent = "menu";
-        }
-    });
+menuBtn.addEventListener('click', () => {
+    // mobileMenu.classList.toggle('hidden');
+    if (menuIcon.textContent === "menu")
+    {
+        menuIcon.textContent = "close";
+    }
+    else
+    {
+        menuIcon.textContent = "menu";
+    }
+});
